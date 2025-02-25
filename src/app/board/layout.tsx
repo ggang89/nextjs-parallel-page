@@ -1,26 +1,22 @@
-import wait from "@/lib/wait";
-import { ReactNode, Suspense } from "react";
 
-export default function BoardLayout({ children }: { children: ReactNode }) {
+import { ReactNode } from "react";
+
+export default function BoardLayout({
+  children,
+  boardList,
+  comments,
+}: {
+  children: ReactNode;
+  boardList: ReactNode;
+  comments: ReactNode;
+}) {
   return (
-    <div>
+    <div >
       {children}
-      <Suspense fallback={<h2>Loading board list...</h2>}>
-        <BoardList />
-      </Suspense>
-
-      <Suspense fallback={<h2>Loading comments...</h2>}>
-        <Comments />
-      </Suspense>
-    </div>
-  );
-}
-async function BoardList() {
-  await wait(2000);
-  return <h2>BoardList</h2>;
+      {boardList}
+      {comments}
+    </div>);
 }
 
-async function Comments() {
-  await wait(3000);
-  return <h2>Comments</h2>;
-}
+
+
