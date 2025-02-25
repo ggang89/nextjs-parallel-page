@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import { ReactNode } from "react";
 
 export default function BoardLayout({
@@ -14,9 +15,14 @@ export default function BoardLayout({
   }) {
   const isAdmin = false;
   return (
-    <div >
+    <div>
+      <nav>
+        <Link href={"/board"}>✔Board</Link>
+        {"  "}
+        <Link href={"/board/settings"}>✔Board안의 settings</Link>
+      </nav>
       {/* 조건처리=> isAdmin이 true일 때만 admin 보여줌 */}
-      {isAdmin && admin} 
+      {isAdmin && admin}
 
       {children}
       {boardList}
